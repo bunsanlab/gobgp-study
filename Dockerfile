@@ -8,6 +8,5 @@ ADD config/daemons /etc/quagga/daemons
 RUN cp /usr/share/doc/quagga/examples/zebra.conf.sample /etc/quagga/zebra.conf
 RUN /etc/init.d/quagga restart
 
-WORKDIR ~/
-
+WORKDIR /root
 
