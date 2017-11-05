@@ -30,7 +30,16 @@ services:
       LAN2:
         ipv4_address: 10.0.1.3
     hostname: C3
-     
+  C4:
+    build: .
+    image: masumoto:latest
+    container_name: C4
+    privileged: true
+    tty: true
+    networks: 
+      LAN3:
+        ipv4_address: 10.0.2.4
+    hostname: C4
 
 
 networks:
@@ -46,3 +55,9 @@ networks:
      config:
        - subnet: 10.0.1.0/24
          gateway: 10.0.1.254
+  LAN3:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.0.2.0/24
+         gateway: 10.0.2.254
