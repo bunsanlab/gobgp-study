@@ -1,0 +1,48 @@
+version: '2'
+services:
+  C1:
+    build: .
+    image: masumoto:latest
+    container_name: C1
+    tty: true
+    privileged: true
+    networks: 
+      LAN1:
+        ipv4_address: 10.0.0.1
+    hostname: C1
+  C2:
+    build: .
+    image: masumoto:latest
+    container_name: C2
+    tty: true
+    privileged: true
+    networks: 
+      LAN1:
+        ipv4_address: 10.0.0.2
+    hostname: C2
+  C3:
+    build: .
+    image: masumoto:latest
+    container_name: C3
+    privileged: true
+    tty: true
+    networks: 
+      LAN2:
+        ipv4_address: 10.0.1.3
+    hostname: C3
+     
+
+
+networks:
+  LAN1:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.0.0.0/24
+         gateway: 10.0.0.254
+  LAN2:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.0.1.0/24
+         gateway: 10.0.1.254
