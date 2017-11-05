@@ -10,7 +10,6 @@ services:
       LAN1:
         ipv4_address: 10.0.0.1
     hostname: C1
-    command: /etc/init.d/quagga restart
   C2:
     build: .
     image: masumoto:latest
@@ -21,7 +20,6 @@ services:
       LAN1:
         ipv4_address: 10.0.0.2
     hostname: C2
-    command: /etc/init.d/quagga restart
   C3:
     build: .
     image: masumoto:latest
@@ -32,7 +30,6 @@ services:
       LAN2:
         ipv4_address: 10.0.1.3
     hostname: C3
-    command: /etc/init.d/quagga restart
      
 
 
